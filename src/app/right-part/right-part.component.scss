@@ -1,0 +1,78 @@
+@import "../app.component";
+
+@keyframes spin {
+  0%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
+
+#pokeball{
+  position: absolute;
+  z-index: 101;
+  margin-top: 190px;
+  margin-left: 170px;
+  color:white;
+
+  .container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .mainball{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border: 10px solid #000;
+    border-radius: 50%;
+    overflow: hidden;
+
+    animation: spin 3s ease-in-out 3;
+  }
+
+  .mainball::before,.mainball::after{
+    content: '';
+    position: absolute;
+  }
+
+  .mainball::before{
+    background: red;
+    width: 100%;
+    height: 50%;
+  }
+
+  .mainball::after{
+    top: calc(50% - 10px);
+    width: 100%;
+    height: 15px;
+    background: #000;
+  }
+
+  .pokebutton{
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 50px;
+    height: 50px;
+    background: #7f8c8d;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 10px black;
+
+  }
+}
+
+#text{
+  z-index: 101;
+  margin-top: 350px;
+  margin-left: 130px;
+  color: white;
+  position: absolute;
+}

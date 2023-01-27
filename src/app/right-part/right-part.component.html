@@ -1,0 +1,56 @@
+
+<ng-container *ngIf="pokemon && pokemon.detail ; else newDeb ">
+
+<div id="info-screen">
+ <div id="content">
+    <span>Nom:</span>     {{   pokemon.detail.names[4].name }}<br/>
+    <span>Type:</span>   {{slugify(pokemon.detail.genera[3].genus)}}<br/>
+    <span>Taille:</span> {{pokemon.height / 10}} m<br/>
+    <span>Poids:</span>   {{pokemon.weight / 10}} Kg<br/><br/>
+    <span>Description :</span> version {{pokemon.detail.flavor_text_entries[idDescription].version.name}} ( {{idDescription+1}}/{{allFrenchDescription().length}} )<br/>
+    <div style="font-size: 0.8em;    line-height: 9px;"> {{frenchDescription()}}</div>
+ </div>
+</div>
+<div id="keyboard">
+  <app-key-hd       [isActive]="isActiveButtonHD"       (click)='activeButton("hd")'></app-key-hd>
+  <app-key-game-boy [isActive]="isActiveButtonGameBoy"  (click)='activeButton("gb")'></app-key-game-boy>
+  <div class="key" appLongPress (onLongPressing)="showFootPrint()" (mouseup)="hideFootPrint()"><div style="text-align: center;margin-top: 2px;"><img src="assets/icon/empreinte.png" style="width: 32px;"></div></div>
+  <div class="key"><div style="text-align: center;margin-top: 2px;" (click)="playSound()"><img src="assets/icon/sound.png" style="width: 32px;color: black"></div></div>
+  <div class="key"></div>
+  <div class="key"></div>
+  <div class="key"></div>
+  <div class="key"></div>
+  <div class="key"></div>
+  <div class="key"></div>
+</div>
+<div id="leaf-button-right"></div>
+<div id="yellow-button-right"></div>
+<div id="green-button-right"></div>
+<div id="orange-button-right"></div>
+<div id="left-cross-button" (click)="changeDescription('-')">
+  <div id="leftT"></div>
+</div>
+<div id="right-cross-button" (click)="changeDescription('+')">
+  <div id="rightT"></div>
+</div>
+<div id="cross-button">
+  <div id="left-red-cross"></div>
+</div>
+<div id="square-button-right1"><span>{{pokemon.types[1]?.type?.name}}</span></div>
+  <div id="square-button-right2"><span>{{pokemon.types[0]?.type?.name}}</span></div>
+
+</ng-container>
+
+<ng-template #newDeb >
+ <div id="pokeball">
+    <div class="container">
+      <div class="mainball">
+        <div class="pokebutton"></div>
+      </div>
+    </div>
+ </div>
+  <div id="text">
+    Chargement ...
+  </div>
+</ng-template>
+

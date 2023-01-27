@@ -1,0 +1,36 @@
+
+
+<div id="pokedex">
+  <div id="left">
+    <app-left-part
+      [pokemon]="pokemon"
+      (changePokemon)="changePokemon($event)"
+      [isGameBoy]="isGameBoy"
+      [isFootprint]="isFootprint"
+    ></app-left-part>
+  </div>
+  <div id="middle">
+    <div id="hinge1"></div>
+    <div id="hinge2"></div>
+    <div id="hinge3"></div>
+  </div>
+  <div id="right" >
+   <app-right-part
+     [pokemon]="pokemon"
+     (eventShowGameBoy)="showGameBoy($event)"
+     (eventShowFootprint)="showFootprint($event)"
+   ></app-right-part>
+  </div>
+  <div id="top-right1"></div>
+  <div id="top-right2"></div>
+</div>
+
+<div id="explain">
+  <h4>How does it work ? </h4>
+    <ul>
+      <li>    This pokedex come from : <a href="https://github.com/bloodstorms/pokedex">Bloodstorms's Github page</a>      </li>
+      <li>    All datas come from : <a href="https://pokeapi.co/">Pokeapi</a>      </li>
+      <li>    I added all footprints and pokemon's screams.      </li>
+      <li>    Most of buttons of this pokedex works. PLay with them ! </li>
+    </ul>
+</div>
